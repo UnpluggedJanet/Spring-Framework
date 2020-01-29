@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Post">
+	<typeAlias alias="post" type="com.closet.domain.Post"/>
+	
+  	<resultMap id="postResult" class="post">
+	    <result property="postId" column="postId"/>
+	    <result property="memberid" column="memberid"/>
+	    <result property="postDate" column="postDate"/>
+	    <result property="text" column="text"/>
+	    <result property="img" column="img"/>
+  	</resultMap>
+  	
+  <insert id="insertPost" parameterClass="post">
+    insert into Post (postId, memberid, postDate, text, img) values (postId.nextval, , to_char(sysdate, 'yyyy/mm/dd hh24:mi:ss'), #text#, #img#)
+  </insert>
+  <delete id="deletePost" parameterClass="java.lang.Integer">
+  	delete from Post where postId=#postId#
+  </delete>
+  
+  <select id="newsfeedPost" parameterClass="post" resultMap="postResult">
+  	select * from Post order by postId desc
+  </select> 
+  
+  </sqlMap>

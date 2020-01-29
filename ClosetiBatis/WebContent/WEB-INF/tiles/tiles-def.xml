@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<!-- 기본 템플릿 -->
+	<definition name="base_layout" template="/WEB-INF/jsp/template/layout.jsp">
+		<put-attribute name="title" value="우리들의 옷장" />
+		<put-attribute name="header" value="/WEB-INF/jsp/template/layout_header.jsp" />
+		<put-attribute name="topMenu" value="/WEB-INF/jsp/template/layout_topMenu.jsp" />
+		<put-attribute name="bestDresser" value="" />
+		<put-attribute name="body" value="/WEB-INF/jsp/template/layout_body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/template/layout_footer.jsp" />	
+	</definition>
+	
+	<!-- Weekly Best Dresser 보여주는 템플릿 -->
+	<definition name="base+bestD" extends="base_layout">
+		<put-attribute name="bestDresser" value="/WEB-INF/jsp/template/layout_best" />
+	</definition>
+	
+</tiles-definitions>
